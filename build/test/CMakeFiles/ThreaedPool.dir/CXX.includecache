@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/ThreadPool/Thread.h
+pthread.h
+-
+iostream
+-
+
+/home/yongshen/cpp_project/SearchEngine/test/Test_Pool.cc
+Thread.h
+/home/yongshen/cpp_project/SearchEngine/test/Thread.h
+iostream
+/home/yongshen/cpp_project/SearchEngine/test/iostream
+
