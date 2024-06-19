@@ -1,11 +1,14 @@
 #pragma once
 #include <pthread.h>
 #include <iostream>
+#include <functional>
 
+// 任务可以通过参数传递进来，交给数据成员
 class Thread
 {
 public:
-    Thread();
+    using ThreadCallback = std::function<void()>;   // 任务类型
+    Thread(ThreadCallback &&cb);
     virtual ~Thread();
 
     void start();
@@ -16,8 +19,7 @@ private:
 
     static void *PthredFunc(void*);     // 线程入口函数，因为是成员函数，设置为static
 
-    virtual void run() = 0; // 线程要执行的任务
-
     pthread_t _thid;
     bool _isRunning;
+    ThreadCallback _cb;
 };

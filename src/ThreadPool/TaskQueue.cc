@@ -22,7 +22,7 @@ bool TaskQueue::full()
 }
 
 // 生产数据
-void TaskQueue::push(ElemType data)
+void TaskQueue::push(ElemType &&data)
 {
     MutexLockGuard guard(_mutex);
 
@@ -32,7 +32,7 @@ void TaskQueue::push(ElemType data)
         _Empty.wait();
     }
 
-    _que.push(data);
+    _que.push(std::move(data));
     
     _Full.notify(); // 唤醒消费者
 }
@@ -55,3 +55,4 @@ ElemType TaskQueue::pop()
 
     return data;
 }
+

@@ -1,14 +1,15 @@
 #pragma once
 #include "MutexLock.h"
 #include "Condition.h"
-#include "Task.h"
 #include <queue>
+#include <iostream>
+#include <functional>
 
 /*
     任务队列，队列中的任务用一个类 Task 来表示
 */
 
-using ElemType = Task*;
+using ElemType = std::function<void()>;
 
 class TaskQueue
 {
@@ -19,7 +20,7 @@ public:
     bool empty();
     bool full();
 
-    void push(ElemType data);
+    void push(ElemType &&data);
     ElemType pop();
 
 private:
@@ -29,3 +30,4 @@ private:
     Condition _Full;    // 满
     Condition _Empty;   // 空
 };
+

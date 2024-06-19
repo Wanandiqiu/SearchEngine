@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ThreaedPool
+# Target rules for targets named ThreadPool
 
 # Build rule for target.
-ThreaedPool: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ThreaedPool
-.PHONY : ThreaedPool
+ThreadPool: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ThreadPool
+.PHONY : ThreadPool
 
 # fast build rule for target.
-ThreaedPool/fast:
-	$(MAKE) -f test/CMakeFiles/ThreaedPool.dir/build.make test/CMakeFiles/ThreaedPool.dir/build
-.PHONY : ThreaedPool/fast
+ThreadPool/fast:
+	$(MAKE) -f src/ThreadPool/CMakeFiles/ThreadPool.dir/build.make src/ThreadPool/CMakeFiles/ThreadPool.dir/build
+.PHONY : ThreadPool/fast
 
 # Help Target
 help:
@@ -131,7 +131,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... ThreaedPool"
+	@echo "... ThreadPool"
 .PHONY : help
 
 

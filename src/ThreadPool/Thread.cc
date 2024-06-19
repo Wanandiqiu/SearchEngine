@@ -1,8 +1,8 @@
 #include "Thread.h"
 
-Thread::Thread():_thid(0), _isRunning(false)
+Thread::Thread(ThreadCallback &&cb):_thid(0), _isRunning(false),_cb(std::move(cb))
 {
-
+    // 任务以参数形式传递进来，交给数据成员_cb
 }
 
 Thread::~Thread()
@@ -49,7 +49,7 @@ void *Thread::PthredFunc(void* arg)
     Thread* pt = static_cast<Thread*>(arg);
     if(pt)
     {
-        pt->run();
+        pt->_cb();
     }
     pthread_exit(nullptr);  // 线程完成其任务时终止线程的执行, 可以返回一个值给 pthread_join
 }

@@ -1,1 +1,0 @@
-/usr/bin/c++  -g  -rdynamic CMakeFiles/ThreaedPool.dir/Test_Pool.cc.o  -o ../../bin/ThreaedPool -lpthread 
