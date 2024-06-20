@@ -5,3 +5,6 @@
 /home/yongshen/cpp_project/SearchEngine/build/src/ThreadPool/CMakeFiles/rebuild_cache.dir
 /home/yongshen/cpp_project/SearchEngine/build/src/ThreadPool/CMakeFiles/ThreadPool.dir
 /home/yongshen/cpp_project/SearchEngine/build/src/ThreadPool/CMakeFiles/edit_cache.dir
+/home/yongshen/cpp_project/SearchEngine/build/src/Reactor/CMakeFiles/rebuild_cache.dir
+/home/yongshen/cpp_project/SearchEngine/build/src/Reactor/CMakeFiles/Reactor.dir
+/home/yongshen/cpp_project/SearchEngine/build/src/Reactor/CMakeFiles/edit_cache.dir
