@@ -6,13 +6,18 @@
 #include<functional>
 #include "TcpConnection.h"
 #include "Acceptor.h"
+#include "MutexLock.h"
 #include <functional>
 #include <unordered_map>
+#include <unistd.h>
+#include <sys/eventfd.h>
 #include <unistd.h>
 
 class EventLoop{
     using TcpConnectionPtr = std::shared_ptr<TcpConnection>;    // TcpConnection 要保持唯一，所以用智能指针包起来
     using TcpConnectionCallback = std::function<void(const TcpConnectionPtr &con)>;  //回调函数类型
+    using Functor = std::function<void()>;   // 执行的任务类型
+
 public:
     EventLoop(Acceptor &acceptor);
     ~EventLoop();
@@ -27,6 +32,15 @@ public:
     void setMessageCallback(TcpConnectionCallback &&cb);
     void setCloseCallback(TcpConnectionCallback &&cb);
 
+    void handleRead();  // 读 eventfd
+    void handleWrite(); // 写 eventfd
+
+    int createEventFd();    // 创建eventFd
+
+    void runInLoop(Functor &&cb);
+
+    void doPengdingFunctors();  // 执行回调
+
 private:
     void WaitEpollFd();
     int CreateEpollFd();
@@ -35,7 +49,7 @@ private:
     void DelEpollFd(int fd);
 
     void handleNewConnection();     // 处理连接建立
-    void handleMessage(int fd);   // 处理消息的收发
+    void handleMessage(int fd);   // 处理消息的收发 
 
 private:
     int _epfd;  // epoll_create 创建的fd
@@ -48,5 +62,8 @@ private:
     TcpConnectionCallback _onMessageCb;
     TcpConnectionCallback _onCloseCb;
 
+    int _evfd;  // 通信的fd
+    std::vector<Functor> _pengdings;    // 回调函数
+    MutexLock _mutex;
 };
 

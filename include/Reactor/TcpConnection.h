@@ -11,6 +11,7 @@ using std::shared_ptr;
 using std::string;
 
 class TcpConnection;
+class EventLoop;
 
 using TcpConnectionPtr = shared_ptr<TcpConnection>;
 
@@ -37,6 +38,7 @@ public:
     void handleMessageCallback();   //处理消息发送
     void handleCloseCallback();     //处理连接断开
     
+    void sendInLoop(const string &msg);
 
 private:
     //获取本端地址与对端地址
@@ -45,6 +47,7 @@ private:
 
 private:
     SocketIO _sockIO;
+    EventLoop *_loop;
 
     Socket _sock;
     //本端地址与对端地址

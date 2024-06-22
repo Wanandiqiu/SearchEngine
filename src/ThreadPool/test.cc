@@ -1,3 +1,4 @@
+#if 0
 #include "Thread.h"
 #include "ThreadPool.h"
 #include <iostream>
@@ -33,4 +34,5 @@ int main()
 
     return 0;
 }
+#endif
 

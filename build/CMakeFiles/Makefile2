@@ -63,130 +63,54 @@ CMAKE_BINARY_DIR = /home/yongshen/cpp_project/SearchEngine/build
 # Directory level rules for directory src
 
 # Convenience name for "all" pass in the directory.
-src/all: src/ThreadPool/all
-src/all: src/Reactor/all
+src/all: src/CMakeFiles/ReactorV1.dir/all
 
 .PHONY : src/all
 
 # Convenience name for "clean" pass in the directory.
-src/clean: src/ThreadPool/clean
-src/clean: src/Reactor/clean
+src/clean: src/CMakeFiles/ReactorV1.dir/clean
 
 .PHONY : src/clean
 
 # Convenience name for "preinstall" pass in the directory.
-src/preinstall: src/ThreadPool/preinstall
-src/preinstall: src/Reactor/preinstall
+src/preinstall:
 
 .PHONY : src/preinstall
 
 #=============================================================================
-# Directory level rules for directory src/ThreadPool
-
-# Convenience name for "all" pass in the directory.
-src/ThreadPool/all: src/ThreadPool/CMakeFiles/ThreadPool.dir/all
-
-.PHONY : src/ThreadPool/all
-
-# Convenience name for "clean" pass in the directory.
-src/ThreadPool/clean: src/ThreadPool/CMakeFiles/ThreadPool.dir/clean
-
-.PHONY : src/ThreadPool/clean
-
-# Convenience name for "preinstall" pass in the directory.
-src/ThreadPool/preinstall:
-
-.PHONY : src/ThreadPool/preinstall
-
-#=============================================================================
-# Target rules for target src/ThreadPool/CMakeFiles/ThreadPool.dir
+# Target rules for target src/CMakeFiles/ReactorV1.dir
 
 # All Build rule for target.
-src/ThreadPool/CMakeFiles/ThreadPool.dir/all:
-	$(MAKE) -f src/ThreadPool/CMakeFiles/ThreadPool.dir/build.make src/ThreadPool/CMakeFiles/ThreadPool.dir/depend
-	$(MAKE) -f src/ThreadPool/CMakeFiles/ThreadPool.dir/build.make src/ThreadPool/CMakeFiles/ThreadPool.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/yongshen/cpp_project/SearchEngine/build/CMakeFiles --progress-num=9,10,11,12,13,14,15 "Built target ThreadPool"
-.PHONY : src/ThreadPool/CMakeFiles/ThreadPool.dir/all
+src/CMakeFiles/ReactorV1.dir/all:
+	$(MAKE) -f src/CMakeFiles/ReactorV1.dir/build.make src/CMakeFiles/ReactorV1.dir/depend
+	$(MAKE) -f src/CMakeFiles/ReactorV1.dir/build.make src/CMakeFiles/ReactorV1.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/yongshen/cpp_project/SearchEngine/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 "Built target ReactorV1"
+.PHONY : src/CMakeFiles/ReactorV1.dir/all
 
 # Include target in all.
-all: src/ThreadPool/CMakeFiles/ThreadPool.dir/all
+all: src/CMakeFiles/ReactorV1.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-src/ThreadPool/CMakeFiles/ThreadPool.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yongshen/cpp_project/SearchEngine/build/CMakeFiles 7
-	$(MAKE) -f CMakeFiles/Makefile2 src/ThreadPool/CMakeFiles/ThreadPool.dir/all
+src/CMakeFiles/ReactorV1.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yongshen/cpp_project/SearchEngine/build/CMakeFiles 15
+	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/ReactorV1.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/yongshen/cpp_project/SearchEngine/build/CMakeFiles 0
-.PHONY : src/ThreadPool/CMakeFiles/ThreadPool.dir/rule
+.PHONY : src/CMakeFiles/ReactorV1.dir/rule
 
 # Convenience name for target.
-ThreadPool: src/ThreadPool/CMakeFiles/ThreadPool.dir/rule
+ReactorV1: src/CMakeFiles/ReactorV1.dir/rule
 
-.PHONY : ThreadPool
-
-# clean rule for target.
-src/ThreadPool/CMakeFiles/ThreadPool.dir/clean:
-	$(MAKE) -f src/ThreadPool/CMakeFiles/ThreadPool.dir/build.make src/ThreadPool/CMakeFiles/ThreadPool.dir/clean
-.PHONY : src/ThreadPool/CMakeFiles/ThreadPool.dir/clean
+.PHONY : ReactorV1
 
 # clean rule for target.
-clean: src/ThreadPool/CMakeFiles/ThreadPool.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory src/Reactor
-
-# Convenience name for "all" pass in the directory.
-src/Reactor/all: src/Reactor/CMakeFiles/Reactor.dir/all
-
-.PHONY : src/Reactor/all
-
-# Convenience name for "clean" pass in the directory.
-src/Reactor/clean: src/Reactor/CMakeFiles/Reactor.dir/clean
-
-.PHONY : src/Reactor/clean
-
-# Convenience name for "preinstall" pass in the directory.
-src/Reactor/preinstall:
-
-.PHONY : src/Reactor/preinstall
-
-#=============================================================================
-# Target rules for target src/Reactor/CMakeFiles/Reactor.dir
-
-# All Build rule for target.
-src/Reactor/CMakeFiles/Reactor.dir/all:
-	$(MAKE) -f src/Reactor/CMakeFiles/Reactor.dir/build.make src/Reactor/CMakeFiles/Reactor.dir/depend
-	$(MAKE) -f src/Reactor/CMakeFiles/Reactor.dir/build.make src/Reactor/CMakeFiles/Reactor.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/yongshen/cpp_project/SearchEngine/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target Reactor"
-.PHONY : src/Reactor/CMakeFiles/Reactor.dir/all
-
-# Include target in all.
-all: src/Reactor/CMakeFiles/Reactor.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-src/Reactor/CMakeFiles/Reactor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yongshen/cpp_project/SearchEngine/build/CMakeFiles 8
-	$(MAKE) -f CMakeFiles/Makefile2 src/Reactor/CMakeFiles/Reactor.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yongshen/cpp_project/SearchEngine/build/CMakeFiles 0
-.PHONY : src/Reactor/CMakeFiles/Reactor.dir/rule
-
-# Convenience name for target.
-Reactor: src/Reactor/CMakeFiles/Reactor.dir/rule
-
-.PHONY : Reactor
+src/CMakeFiles/ReactorV1.dir/clean:
+	$(MAKE) -f src/CMakeFiles/ReactorV1.dir/build.make src/CMakeFiles/ReactorV1.dir/clean
+.PHONY : src/CMakeFiles/ReactorV1.dir/clean
 
 # clean rule for target.
-src/Reactor/CMakeFiles/Reactor.dir/clean:
-	$(MAKE) -f src/Reactor/CMakeFiles/Reactor.dir/build.make src/Reactor/CMakeFiles/Reactor.dir/clean
-.PHONY : src/Reactor/CMakeFiles/Reactor.dir/clean
-
-# clean rule for target.
-clean: src/Reactor/CMakeFiles/Reactor.dir/clean
+clean: src/CMakeFiles/ReactorV1.dir/clean
 
 .PHONY : clean
 

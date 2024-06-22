@@ -4,16 +4,21 @@ EventLoop::EventLoop(Acceptor &acceptor):
 _epfd(CreateEpollFd()),
 _acceptor(acceptor),
 _isLooping(false),
-_evList(1024)
+_evList(1024),
+_evfd(createEventFd()),
+_mutex()
 {
     // 把监听的文件描述符 listenfd 放到红黑树上
     AddEpollFd(_acceptor.fd());
+    AddEpollFd(_evfd);
 }
 
 
 EventLoop::~EventLoop()
 {
     close(_epfd);
+
+    close(_evfd);
 }
 
 //回调函数注册(中转)
@@ -95,6 +100,14 @@ void EventLoop::WaitEpollFd()
                 {
                     // 处理新的连接请求
                     handleNewConnection();
+                }
+            }
+            else if(fd == _evfd)
+            {
+                if(_evList[idx].events == EPOLLIN)
+                {
+                    handleRead();
+                    doPengdingFunctors();   // 执行回调，进行 send
                 }
             }
             else
@@ -186,3 +199,58 @@ void EventLoop::handleMessage(int fd){
     }
 }
 
+void EventLoop::handleRead()    // 读 eventfd
+{  
+    uint64_t one;
+    ssize_t ret = read(_evfd, &one, sizeof(one));
+    if(ret != sizeof(one)){
+        perror("read");
+        return;
+    }
+}
+
+void EventLoop::handleWrite()
+{
+    uint64_t one;
+    ssize_t ret = write(_evfd, &one, sizeof(one));
+    if(ret != sizeof(one)){
+        perror("write");
+        return;
+    }
+}
+
+int EventLoop::createEventFd()
+{
+    int fd = eventfd(10, 0);
+    if(fd < 0){
+        perror("eventfd");
+        return -1;
+    }
+    return fd;
+}
+
+void EventLoop::runInLoop(Functor &&cb){
+
+    {
+        MutexLockGuard autolock(_mutex);
+        _pengdings.push_back(std::move(cb));
+    }
+
+    //必须执行唤醒操作
+    handleWrite();
+}
+
+void EventLoop::doPengdingFunctors()
+{
+    // 该函数内遍历vector时，在 runInLoop 中可能正往 vector 中写入，所以可以让读写分离
+    std::vector<Functor> tmp;
+    {
+        MutexLockGuard autolock(_mutex);
+        tmp.swap(_pengdings);
+
+    }
+    //对共享资源进行读操作
+    for(auto &cb : tmp){
+        cb();
+    }
+}

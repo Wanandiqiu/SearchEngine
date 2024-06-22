@@ -14,8 +14,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/feature_tests.c"
   "CMakeFiles/feature_tests.cxx"
   "../src/CMakeLists.txt"
-  "../src/Reactor/CMakeLists.txt"
-  "../src/ThreadPool/CMakeLists.txt"
   "/usr/share/cmake-3.10/Modules/CMakeCCompiler.cmake.in"
   "/usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c"
   "/usr/share/cmake-3.10/Modules/CMakeCInformation.cmake"
@@ -114,12 +112,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/3.10.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "src/ThreadPool/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "src/Reactor/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "src/ThreadPool/CMakeFiles/ThreadPool.dir/DependInfo.cmake"
-  "src/Reactor/CMakeFiles/Reactor.dir/DependInfo.cmake"
+  "src/CMakeFiles/ReactorV1.dir/DependInfo.cmake"
   )

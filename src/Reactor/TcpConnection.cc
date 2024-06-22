@@ -1,4 +1,5 @@
 #include"TcpConnection.h"
+#include "EventLoop.h"
 #include<iostream>
 #include<sstream>
 
@@ -111,3 +112,10 @@ bool TcpConnection::isClose() const{
     return (0 == ret);
 }
 
+// 在EventLoop中进行发送数据，将msg交给EventLoop，让其进行发送
+void TcpConnection::sendInLoop(const string &msg){
+    if(_loop){
+        //让EventLoop去发送
+        _loop->runInLoop(std::bind(&TcpConnection::send, this, msg));
+    }
+}

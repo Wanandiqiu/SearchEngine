@@ -111,30 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ThreadPool
+# Target rules for targets named ReactorV1
 
 # Build rule for target.
-ThreadPool: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ThreadPool
-.PHONY : ThreadPool
+ReactorV1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ReactorV1
+.PHONY : ReactorV1
 
 # fast build rule for target.
-ThreadPool/fast:
-	$(MAKE) -f src/ThreadPool/CMakeFiles/ThreadPool.dir/build.make src/ThreadPool/CMakeFiles/ThreadPool.dir/build
-.PHONY : ThreadPool/fast
-
-#=============================================================================
-# Target rules for targets named Reactor
-
-# Build rule for target.
-Reactor: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Reactor
-.PHONY : Reactor
-
-# fast build rule for target.
-Reactor/fast:
-	$(MAKE) -f src/Reactor/CMakeFiles/Reactor.dir/build.make src/Reactor/CMakeFiles/Reactor.dir/build
-.PHONY : Reactor/fast
+ReactorV1/fast:
+	$(MAKE) -f src/CMakeFiles/ReactorV1.dir/build.make src/CMakeFiles/ReactorV1.dir/build
+.PHONY : ReactorV1/fast
 
 # Help Target
 help:
@@ -144,8 +131,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... ThreadPool"
-	@echo "... Reactor"
+	@echo "... ReactorV1"
 .PHONY : help
 
 
